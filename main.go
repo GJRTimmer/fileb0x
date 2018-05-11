@@ -13,14 +13,14 @@ import (
 	"strings"
 	"time"
 
+	"github.com/GJRTimmer/fileb0x/config"
+	"github.com/GJRTimmer/fileb0x/template"
+	"github.com/GJRTimmer/fileb0x/utils"
 	"github.com/UnnoTed/fileb0x/compression"
-	"github.com/UnnoTed/fileb0x/config"
 	"github.com/UnnoTed/fileb0x/custom"
 	"github.com/UnnoTed/fileb0x/dir"
 	"github.com/UnnoTed/fileb0x/file"
-	"github.com/UnnoTed/fileb0x/template"
 	"github.com/UnnoTed/fileb0x/updater"
-	"github.com/UnnoTed/fileb0x/utils"
 
 	// just to install automatically
 	_ "github.com/labstack/echo"
@@ -163,7 +163,7 @@ func main() {
 			}
 
 			// transform / to _ and some other chars...
-			customName := "b0xfile_" + utils.FixName(f.Path) + ".go"
+			customName := utils.FixName(f.Path) + ".go"
 
 			// creates file template and exec it
 			t := new(template.Template)

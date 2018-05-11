@@ -53,8 +53,8 @@ func (cfg *Config) Defaults() error {
 
 	// inserts an A before the output file's name so it can
 	// run init() before b0xfile's
-	if !strings.HasPrefix(cfg.Output, "a") {
-		cfg.Output = "a" + cfg.Output
+	if !strings.HasPrefix(cfg.Output, "-") {
+		cfg.Output = "-" + cfg.Output
 	}
 
 	// default package
@@ -65,7 +65,7 @@ func (cfg *Config) Defaults() error {
 	// remove b0xfiles when [clean] is true
 	// it doesn't clean destination's folders
 	if cfg.Clean {
-		matches, err := filepath.Glob(cfg.Dest + "b0xfile_*.go")
+		matches, err := filepath.Glob(cfg.Dest + "*.go")
 		if err != nil {
 			return err
 		}
@@ -82,8 +82,8 @@ func (cfg *Config) Defaults() error {
 	if cfg.Compression == nil {
 		cfg.Compression = &compression.Options{
 			Compress: false,
-			Method: "DefaultCompression",
-			Keep: false,
+			Method:   "DefaultCompression",
+			Keep:     false,
 		}
 	}
 

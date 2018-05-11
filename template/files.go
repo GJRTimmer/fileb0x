@@ -65,7 +65,6 @@ func init() {
 
 {{if not .Debug}}
 {{if not .Updater.Empty}}
-//var err error
 {{end}}
 
 {{range $index, $dir := .DirList}}
